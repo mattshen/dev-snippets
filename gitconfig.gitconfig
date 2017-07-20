@@ -1,0 +1,34 @@
+[user]
+	name = Matt Shen
+	email = lovelywib@gmail.com
+[core]
+	autocrlf = input
+	excludesfile = /Users/zhongweishen/.gitignore_global
+[difftool "vimdiff"]
+[mergetool "vimdiff"]
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	lt = log --pretty=format:\"%h - %s : %an, %ci\"
+  lg = log --all --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  add-commit = !git add -A && git commit
+  lvci = commit --author "Matt Shen <lovelywib@gmail.com>"
+  incoming = "!git remote update -p; git log ..@{u}"
+  outgoing = log @{u}..
+  unstage = reset --
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/zhongweishen/.stCommitMsg
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
